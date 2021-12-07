@@ -10,7 +10,6 @@ const url = req.url;
         res.write('</html>');
         return res.end();         
     }
-    
     if (url==='/message' && method==='POST'){
         const body=[];
         req.on('data',(chunk)=>{
