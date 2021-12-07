@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "start-server":"node app.js"
+    "start-server": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -15,10 +15,13 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon":"^1.18.3"
+    "nodemon": "^1.18.3"
   },
   "bugs": {
     "url": "https://github.com/ducbalck/nodejs/issues"
   },
-  "homepage": "https://github.com/ducbalck/nodejs#readme"
+  "homepage": "https://github.com/ducbalck/nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
