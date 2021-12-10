@@ -18,8 +18,8 @@ app.use('/admin',adminRoutes);
 
 app.use(shopRouter);
 
-app.use((req,res,next)=>{
-    res.status(404).render('404',{pageTitle:'Page Not Found'});
-});
+app.use((req, res, next) => {
+    res.status(404).render('404', { pageTitle: 'Page Not Found', path: '/404' });
+    });
 
 app.listen(3000);
