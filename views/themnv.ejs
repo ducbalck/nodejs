@@ -1,0 +1,43 @@
+<%- include('./includes/head.ejs') %>
+</head>
+
+<body>
+   <%- include('./includes/navigation.ejs') %>
+   <div class="container add">
+    <form  action="/<% if (editing) { %>editnv<% } else { %>themnv<% } %>"  method="POST">
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="name">Name</label>
+      <input class="col-8 col-md-6 " type="text" name="name" id="name"value="<% if (editing) { %><%= nhanvien.name %><% } %>" >
+    </div>
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="doB">doB</label>
+      <input class="col-8 col-md-6"  type="date"  name="doB" id="doB"value="<% if (editing) { %><%= nhanvien.doB.toISOString().replace(/\T..+/, '') %><% } %>" >
+    </div>
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="salaryScale">salaryScale</label>
+      <input class="col-8 col-md-6" type="text" salaryScale="salaryScale"name="salaryScale" id="salaryScale" value="<% if (editing) { %><%= nhanvien.salaryScale %><% } %>">
+    </div>
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="startDate">startDate</label>
+      <input class="col-8 col-md-6"  type="date"  startDate="startDate"name="startDate" id="startDate"value="<% if (editing) { %><%= nhanvien.startDate.toISOString().replace(/\T..+/, '') %><% } %>" >
+    </div>
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="department">department</label>
+      <input class="col-8 col-md-6" type="text" department="department"name="department" id="department"value="<% if (editing) { %><%= nhanvien.department %><% } %>" >
+    </div>
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="annualLeave">annualLeave</label>
+      <input class="col-8 col-md-6" type="text" name="annualLeave"name="annualLeave" id="annualLeave" value="<% if (editing) { %><%= nhanvien.annualLeave %><% } %>" >
+    </div>
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="Image">Image</label>
+      <input class="col-8 col-md-6" type="text" Image="Image"name="Image" id="Image"value="<% if (editing) { %><%= nhanvien.Image %><% } %>" >
+    </div>
+    <% if (editing) { %>
+      <input type="hidden" value="<%= nhanvien._id %>" name="nhanvienId">
+  <% } %>
+    <button class="btn btn-primary "  type="submit"><% if (editing) { %>Update <% } else { %>Thêm<% } %></button> 
+  </form>
+</div>
+         
+<%- include('./includes/end.ejs') %>

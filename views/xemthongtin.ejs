@@ -1,0 +1,34 @@
+<%- include('./includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('./includes/navigation.ejs') %>
+        <div class="containe">
+            <div class="row ">
+                <% if (prods.length> 0) { %>
+                    <% for (let nhanvien of prods) { %>
+                        <div class="card  text-black col-md-2  col-12 m-2">
+                            <img src="<%= nhanvien.Image %>" alt="<%= nhanvien.name %>">
+                            <div class="card-img-overlay">
+                                <h6>Tên:<%= nhanvien.name %>
+                                </h6>
+                                <p>
+                                    Ngày sinh: <%= nhanvien.doB.toISOString().replace(/\T..+/, '') %> <br>
+                                        Lương:<%= nhanvien.salaryScale %> <br>
+                                            Ngày Bắt Đầu :<%= nhanvien.startDate.toISOString().replace(/\T..+/, '') %> <br>
+                                                Bộ phận:<%= nhanvien.department %> <br>
+                                                    Ngày nghỉ :<%= nhanvien.annualLeave %> <br>
+                                </p>
+                                
+                                <a href="/editnv/<%= nhanvien._id %>?edit=true" class="btn-primary">Sửa</a>
+                            </div>
+                        </div>
+
+                        <% } %>
+                            <% } else { %>
+                                <h1>No nhanviens Found!</h1>
+                                <% } %>
+            </div>
+        </div>
+
+            <%- include('./includes/end.ejs') %>

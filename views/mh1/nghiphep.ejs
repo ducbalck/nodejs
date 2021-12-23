@@ -1,0 +1,21 @@
+<%- include('./includes/head.ejs') %>
+    </head>
+
+    <body>
+        <%- include('./includes/navigation.ejs') %>
+
+            <div class=" container">
+                <form action="/nhanvien/diemdanh" method="POST">
+                    <div class="form-control row ">
+                        <label class="col-2" for="name">Name</label>
+                        <input class="col-6" type="text" name="name" id="name">
+                    </div>
+
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+
+
+                    <button class="btn btn-dark" type="submit">điểm danh</button>
+                </form>
+                <p>Số ngày còn lại</p>
+            </div>
+            <%- include('./includes/end.ejs') %>

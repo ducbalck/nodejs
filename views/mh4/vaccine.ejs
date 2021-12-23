@@ -1,0 +1,30 @@
+<%- include('./includes/head.ejs') %>
+</head>
+
+<body>
+   <%- include('./includes/navigation.ejs') %>
+   <div class="container add">
+    <form  action="/<% if (editing) { %>editnv<% } else { %>themnv<% } %>"  method="POST">
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="ten">Tên</label>
+      <input class="col-8 col-md-6 " type="text" name="ten" id="ten"value="<% if (editing) { %>editnv<%= nhanvien.ten%><% } %>" >
+    </div>
+    <div class="form-check mt-2">  
+        <input class="col-8 col-md-6 " type="checkbox" name="mui1" id="mui1"value="mui1" >mui 1
+        <input class="col-8 col-md-6 " type="checkbox" name="mui2" id="mui2"value="mui2" >mui 2
+        <input class="col-8 col-md-6 " type="date" name="ngaychich" id="ngaychich"value="ngaychich" >Ngày chích
+      </div>
+    <div class="form-control row ">
+        <select class="col-4 " name="workplace " id="workplace">
+            Loại văc xin:
+                <option value="home">Nhà</option>
+                <option selected  value="company">Công ty</option>
+                <option value="custumer">Khách hàng</option>   
+        </select>
+        </div> 
+    
+    <button class="btn btn-primary "  type="submit">Đăng ký</button> 
+  </form>
+</div>
+
+    <%- include('./includes/end.ejs') %>

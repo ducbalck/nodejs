@@ -1,0 +1,17 @@
+<%- include('./includes/head.ejs') %>
+</head>
+
+<body>
+   <%- include('./includes/navigation.ejs') %>
+   <div class="container add">
+    <form  action="/<% if (editing) { %>editnv<% } else { %>themnv<% } %>"  method="POST">
+    <div class="form-group mt-2">
+      <label class="col-3 col-md-1"  for="ten">Tên</label>
+      <input class="col-8 col-md-6 " type="text" name="ten" id="ten"value="<% if (editing) { %>editnv<%= nhanvien.ten%><% } %>" >
+    </div>
+    
+    <button class="btn btn-primary "  type="submit">Đăng ký</button> 
+  </form>
+</div>
+
+    <%- include('./includes/end.ejs') %>
