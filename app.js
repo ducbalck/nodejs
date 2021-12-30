@@ -24,6 +24,7 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
@@ -36,7 +37,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  User.findById('61bca44c30537d702b79e031')
+  if (!req.session.user) {
+    return next();
+  }
+  User.findById(req.session.user._id)
     .then(user => {
       req.user = user;
       next();
@@ -51,9 +55,7 @@ app.use(authRoutes);
 app.use(errorController.get404);
 
 mongoose
-.connect(
-  MONGODB_URI
-)
+  .connect(MONGODB_URI)
   .then(result => {
     User.findOne().then(user => {
       if (!user) {
